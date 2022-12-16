@@ -1,0 +1,19 @@
+CLOSE TABLES
+CLOSE DATABASES
+
+PUBLIC m.gcKompl, i
+
+OPEN DATABASE data\arm_pto EXCLUSIVE
+USE nsikal1
+
+SET EXACT OFF
+SET FILTER TO 
+SET ORDER TO
+GO TOP
+
+i="È"
+m.gcKompl=LOWER(ALLTRIM(i))
+DELETE FOR LIKE(m.gcKompl + "*", LOWER(ALLTRIM(kod))) = .t. IN nsikal1
+
+GO TOP
+BROWSE 
